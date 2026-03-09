@@ -55,7 +55,7 @@ Example configuration:
 - 'smtp_port' => 587,
 - 'smtp_user' => 'your-email@gmail.com',
 - 'smtp_pass' => 'your-app-password'
-- 
+
 If email is not configured, the application will still run but emails will not be sent.
 
 ## Admin Login
