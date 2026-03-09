@@ -41,6 +41,23 @@ This project was developed for the **HIT326 Database-Driven Web Applications** u
 6. Import the file: art_store_db.sql
 7. Open in browser: http://localhost/online-art-store/
 
+## Email Configuration
+
+This project uses **PHPMailer** to send order confirmation emails.
+
+To enable email sending:
+
+1. Open `lib/email_config.php`
+2. Enter your SMTP email credentials.
+
+Example configuration:
+- 'smtp_host' => 'smtp.gmail.com',
+- 'smtp_port' => 587,
+- 'smtp_user' => 'your-email@gmail.com',
+- 'smtp_pass' => 'your-app-password'
+- 
+If email is not configured, the application will still run but emails will not be sent.
+
 ## Admin Login
 
 Email: admin123@gmail.com
