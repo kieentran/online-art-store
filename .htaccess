@@ -1,0 +1,8 @@
+# online-art-store/.htaccess
+RewriteEngine On
+RewriteBase /online-art-store/
+
+# If the request is not for a real file or directory, send it to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L,QSA]
