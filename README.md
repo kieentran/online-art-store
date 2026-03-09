@@ -1,2 +1,3 @@
 # online-art-store
-Database-driven e-commerce web application built with PHP, MySQL, HTML, CSS, and JavaScript. Features include shopping cart, admin panel, testimonial moderation, and automated order confirmation using PHPMailer.
+Database-driven e-commerce web application built with **PHP, MySQL, HTML, CSS, and JavaScript**.
+This project was developed for the **HIT326 Database-Driven Web Applications** unit at Charles Darwin University.
