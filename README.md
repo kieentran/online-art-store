@@ -25,11 +25,11 @@ This project was developed for the **HIT326 Database-Driven Web Applications** u
 
 ## Project Structure
 
-assets/ CSS and JavaScript files
-views/ Frontend pages
-lib/ Backend models and logic
-index.php Main application entry
-art_store_db.sql Database schema
+- assets/ CSS and JavaScript files
+- views/ Frontend pages
+- lib/ Backend models and logic
+- index.php Main application entry
+- art_store_db.sql Database schema
 
 ## Running the Project Locally
 
