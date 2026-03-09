@@ -1,0 +1,739 @@
+/* ================================
+   1. RESET & BASE STYLES
+   ================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #c3a8f0 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* ================================
+   2. LAYOUT & CONTAINERS
+   ================================ */
+.main-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: visible; /* Changed from hidden to visible for sticky nav */
+    min-height: calc(100vh - 80px);
+    position: relative;
+}
+
+main {
+    padding: 60px 40px;
+    /* Add top padding to account for fixed nav */
+    padding-top: 140px;
+}
+
+/* ================================
+   3. NAVIGATION (STICKY)
+   ================================ */
+nav {
+    background: white;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Sticky positioning */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Round top corners to match container */
+    border-radius: 30px 30px 0 0;
+    /* Add shadow when scrolled */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Add shadow to nav when page is scrolled */
+nav.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+nav a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #333;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* ================================
+   4. HERO SECTIONS
+   ================================ */
+.hero-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ================================
+   5. BUTTONS
+   ================================ */
+button, .button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+button:hover, .button:hover {
+    background: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-secondary {
+    background: #718096;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.button-secondary:hover {
+    background: #4a5568;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 100%;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46a1 100%);
+}
+
+/* ================================
+   6. FORMS
+   ================================ */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background: #f7fafc;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+}
+
+input[type="password"] {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: normal;
+}
+
+/* ================================
+   7. PRODUCT GRID
+   ================================ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    background: #f8f8f8;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #ffe66d);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 20px;
+}
+
+/* ================================
+   8. CART STYLES
+   ================================ */
+.cart-table {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.cart-table th {
+    background: #f7fafc;
+    padding: 20px;
+    font-weight: 600;
+    color: #4a5568;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cart-table td {
+    padding: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cart-total {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* ================================
+   9. CONFIRMATION PAGE
+   ================================ */
+.confirmation-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.order-success-box {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: #1a5c3a;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.order-success-box h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.order-number {
+    font-size: 18px;
+}
+
+.email-status-box {
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.email-status-box.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.email-status-box.warning {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.status-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.email-status-box h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.status-note {
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+.file-status-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.file-status-box h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.file-icon {
+    font-size: 24px;
+}
+
+.file-name {
+    display: block;
+    font-family: monospace;
+    font-size: 13px;
+    color: #666;
+    margin-top: 2px;
+}
+
+.whats-next-box {
+    background: #f7fafc;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.whats-next-box h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.whats-next-box ol {
+    padding-left: 20px;
+}
+
+.whats-next-box li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.decorative-icons {
+    text-align: center;
+    font-size: 60px;
+    margin: 40px 0;
+}
+
+.decorative-icons span {
+    margin: 0 10px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* ================================
+   10. NEWS & TESTIMONIALS
+   ================================ */
+.latest-news {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.latest-news h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.latest-news h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.latest-news small {
+    opacity: 0.9;
+}
+
+.testimonial-card {
+    background: #f7fafc;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+    position: relative;
+}
+
+.testimonial-content {
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.testimonial-content::before {
+    content: '"';
+    color: #667eea;
+    font-size: 20px;
+    margin-right: 1px;
+}
+
+.testimonial-content::after {
+    content: '"';
+    color: #667eea;
+    font-size: 20px;
+    margin-left: 1px;
+}
+
+.testimonial-author {
+    text-align: right;
+    color: #718096;
+    font-size: 14px;
+}
+
+/* ================================
+   11. UTILITY CLASSES
+   ================================ */
+.success-message {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #1a5c3a;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    color: #718096;
+}
+
+.empty-state-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ================================
+   12. ADMIN PANEL
+   ================================ */
+.admin-table {
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.admin-table th {
+    background: #4a5568;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-approve {
+    background: #48bb78;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-reject {
+    background: #f56565;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ================================
+   13. DECORATIVE ELEMENTS
+   ================================ */
+.decorative-squiggle {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin: 0 10px;
+    opacity: 0.3;
+}
+
+.artwork-decoration {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 10;
+    font-size: 60px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artwork-decoration::before {
+    content: '🎨';
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ================================
+   14. ANIMATIONS
+   ================================ */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* ================================
+   15. RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 768px) {
+    .main-container {
+        margin: 20px;
+        border-radius: 20px;
+    }
+    
+    nav {
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+        /* Ensure sticky works on mobile */
+        position: sticky;
+        top: 0;
+    }
+    
+    main {
+        /* Adjust padding for mobile sticky nav */
+        padding-top: 180px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    main {
+        padding: 30px 20px;
+        padding-top: 180px; /* Keep consistent top padding */
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-buttons {
+        flex-direction: column;
+    }
+    
+    .cart-buttons .button,
+    .cart-buttons .button-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .confirm-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .confirm-buttons .button,
+    .confirm-buttons .button-secondary {
+        width: 100%;
+    }
+    
+    .file-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .email-status-box {
+        padding: 20px;
+    }
+    
+    .status-icon {
+        font-size: 36px;
+    }
+}
